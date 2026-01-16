@@ -6,6 +6,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log(req.body); //logs book data
   res.send("Book has been added!");
 });
 
