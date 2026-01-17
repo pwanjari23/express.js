@@ -13,6 +13,7 @@ const getProductsById = (req, res) => {
 };
 
 const createProduct = (req, res) => {
+  console.log("Product received:", req.body); // ✅ REQUIRED
   const result = productServices.addProduct(req.body);
   res.send(result);
 };

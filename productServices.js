@@ -11,21 +11,23 @@ const getProductById = (id) => {
 };
 
 const addProduct = (productData) => {
-  return "New product added";
+  return {
+    value: productData.productName
+  };
 };
 
-// const updateProductById = (id, productData) => {
-//   return "Update the product by its id";
-// };
+const updateProductById = (id, productData) => {
+  return "Update the product by its id";
+};
 
-// const deleteProductById = (id) => {
-//   return "Delete the product by its id";
-// };
+const deleteProductById = (id) => {
+  return "Delete the product by its id";
+};
 
 module.exports = {
   getAllProducts,
   getProductById,
   addProduct,
-//   updateProductById,
-//   deleteProductById,
+  updateProductById,
+  deleteProductById,
 };
