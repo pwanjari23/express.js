@@ -1,16 +1,23 @@
-// Sends a standardized success response
-const sendSuccess = (res, data, statusCode = 200) => {
-  res.status(statusCode).json({
-    success: true,
+// utils/response.js
+
+const sendResponse = (res, data, statusCode = 200) => {
+  return res.status(statusCode).json({
+    status: true,
     data,
   });
 };
 
-// Throws an error object to be handled by centralized middleware
-const sendError = (message, statusCode = 500) => {
-  const error = new Error(message);
-  error.statusCode = statusCode;
-  return error;
+const sendErrorResponse = (res, err) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+
+  return res.status(statusCode).json({
+    status: false,
+    message,
+  });
 };
 
-module.exports = { sendSuccess, sendError };
+module.exports = {
+  sendResponse,
+  sendErrorResponse,
+};
